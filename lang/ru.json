@@ -1,0 +1,7 @@
+{
+    "The :attribute must contain at least one letter.": "Атрибут :attribute должен содержать хотя бы одну букву.",
+    "The :attribute must contain at least one number.": "Атрибут :attribute должен содержать хотя бы одно число.",
+    "The :attribute must contain at least one symbol.": "Атрибут :attribute должен содержать хотя бы один символ.",
+    "The :attribute must contain at least one uppercase and one lowercase letter.": "Атрибут :attribute должен содержать хотя бы одну заглавную и одну строчную букву.",
+    "The given :attribute has appeared in a data leak. Please choose a different :attribute.": "Данный атрибут :attribute появился в результате утечки данных. Пожалуйста, выберите другой атрибут :attribute."
+}
