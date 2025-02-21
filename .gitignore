@@ -1,4 +1,8 @@
+/desktop.ini
 /.phpunit.cache
+/.phpunit.result.cache
+/.bash_profile
+/.editorconfig
 /node_modules
 /public/build
 /public/hot
