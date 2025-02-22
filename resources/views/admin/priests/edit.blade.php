@@ -2,7 +2,7 @@
 
 @section('admin-content')
     <div class="mx-auto max-width-980 my-5 p-4 rounded-4 shadow-sm bg-chocolate-200">
-        <h1 class="text-3xl mb-4 text-green-300">Редактирование священнослужителя</h1>
+        <h1 class="text-2xl mb-4 text-green-300">Редактирование священнослужителя</h1>
         <div class="min-h-full">
             <div class="max-w-full">
                 <form action="/admin/priests/{{ $priest->slug }}" method="POST"

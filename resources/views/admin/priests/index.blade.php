@@ -5,7 +5,7 @@
     <div class="mx-auto max-width-980">
         <div class="my-2 items-right-2">
             <a href="/admin/priests/create"
-               class="mx-1 px-4 btn btn-outline-success rounded-pill add-icon text-base bg-chocolate-200">&nbsp; Добавить</a>
+               class="px-4 btn btn-outline-success rounded-pill add-icon text-base bg-chocolate-200">&nbsp; Добавить</a>
         </div>
 
         <nav>
@@ -63,7 +63,6 @@
             </form>
         </div>
 
-        <div>
             <div class="">
                 <div class="">
                     <div class="py-2">
@@ -79,17 +78,14 @@
                                 <table class="mx-auto rounded-4 border shadow-sm overflow-hidden">
                                     <thead>
                                     <tr class="no-select">
-                                        <th scope="col" class="text-base">
+                                        <th class="th-start text-base">
                                             &#10022;
                                         </th>
-                                        <th scope="col" class="text-base">
+                                        <th class="th text-base">
                                             Название
                                         </th>
-                                        <th scope="col" class="text-base">
+                                        <th class="th-end text-base">
                                             Изменено
-                                        </th>
-                                        <th scope="col" class="text-base">
-                                            Создано
                                         </th>
                                     </tr>
                                     </thead>
@@ -100,10 +96,10 @@
                                         @else
                                             <tr class="text-chocolate-400 hover:text-chocolate-700">
                                         @endif
-                                                <td class="text-xs">
+                                                <td class="td-start text-xs">
                                                     {{ $loop->iteration }}
                                                 </td>
-                                                <td class="text-xs">
+                                                <td class="td text-xs">
                                                     @if($priest->updated_at >= $lastWeek)
                                                         <a href="/admin/priests/{{ $priest->slug }}"
                                                            class="text-green-300 hover:text-green-400 no-line">
@@ -116,11 +112,8 @@
                                                         </a>
                                                     @endif
                                                 </td>
-                                                <td class="text-xs">
+                                                <td class="td-end text-xs">
                                                     {{ $priest->updated_at->format('d.m.Y H:i') }}
-                                                </td>
-                                                <td class="text-xs">
-                                                    {{ $priest->created_at->format('d.m.Y H:i') }}
                                                 </td>
                                             </tr>
                                     @endforeach
@@ -128,7 +121,7 @@
                                 </table>
                             </div>
                         @else
-                            <div class="mt-4 mb-4 px-4 text-center rounded-5 shadow-sm bg-chocolate-200 border border-red-600 ">
+                            <div class="mt-4 mb-4 px-4 text-center rounded-5 shadow-sm bg-chocolate-200 border">
                                 <p class="my-2 text-xl text-red-600">
                                     &#9888; Священнослужитель соответствующий запросу не найден
                                 </p>
@@ -137,7 +130,6 @@
                     </div>
                 </div>
             </div>
-        </div>
 
         <div class="my-4 text-base no-select">
             {{ $priests->links('pagination::bootstrap-5') }}

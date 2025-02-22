@@ -32,12 +32,11 @@
 
             @auth
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                    <div class="flex">
-                        <div class="px-2 flex text-s">
+                    <div class="mx-auto flex">
+                        <div class="px-2 flex text-xs">
                             <div class="px-2 py-1 nav-item menuitem">
                                 <a class="nav-link" href="/admin/temples">Панель управления</a>
                             </div>
-{{--                            <div class="my-1 py-1 text-green-600">{{ auth()->user()->name }}</div>--}}
                         </div>
                         <form action="/logout" method="POST">
                             @csrf

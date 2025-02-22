@@ -21,7 +21,7 @@
                 <form action="/admin/elder-founders/{{ $elder_founder->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить {{ $elder_founder->name }}?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $elder_founder->firstname }} {{ $elder_founder->secondname }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>

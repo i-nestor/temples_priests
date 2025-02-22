@@ -51,7 +51,6 @@ table {
 
 th {
     color: var(--chocolate-200);
-    padding: 12px 16px 12px 16px;
     background-color: var(--chocolate-400);
     font-weight: normal;
 }
@@ -65,8 +64,28 @@ tr {
     border: 1px solid rgb(245 235 215);
 }
 
-td {
-    padding: 8px 16px 8px 16px;
+.th-start {
+    padding: 12px 8px 12px 16px;
+}
+
+.th {
+    padding: 12px 8px 12px 8px;
+}
+
+.th-end {
+    padding: 12px 16px 12px 8px;
+}
+
+.td-start {
+    padding: 8px 8px 8px 16px;
+}
+
+.td {
+    padding: 8px 8px 8px 8px;
+}
+
+.td-end {
+    padding: 8px 16px 8px 8px;
 }
 
 a {
@@ -311,7 +330,7 @@ ul {
 .tabs-container {
     margin-top: 0.75rem !important;
     margin-bottom: 0.75rem !important;
-    padding: 0 !important;
+    padding: 0.25rem !important;
     width: auto !important;
 }
 

@@ -21,7 +21,7 @@ class LoginController extends Controller {
             'password'  => 'required'
         ]);
 
-        $isRememberMe = $request->POST('remember-me') ? true : false;
+        $isRememberMe = (bool)$request->post('remember-me');
         if (Auth::attempt($credentials, $isRememberMe)) {
             $request->session()->regenerate();
             return redirect()->intended('/admin/temples');
@@ -31,13 +31,11 @@ class LoginController extends Controller {
     }
 
     public function logout(): RedirectResponse {
-//        auth()->logout();
-        Auth::logout();
 
+        Auth::logout();
         request()->session()->regenerate();
         request()->session()->regenerateToken();
 
-//        return redirect()->to('/login')->with('success', 'Успешный выход из панели управления!');
         return redirect('/login')->with('success', 'Успешный выход из панели управления');
     }
 }

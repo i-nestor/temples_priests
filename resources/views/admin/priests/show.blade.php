@@ -21,14 +21,10 @@
                 <form action="/admin/priests/{{ $priest->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить {{ $priest->name }}?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $priest->firstname }} {{ $priest->secondname }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>
-
-{{--                <a href="/admin/priests/{{ $priest->slug }}/edit"--}}
-{{--                   title="Редактировать" class="p-3 btn btn-outline-success rounded-pill edit-icon text-xs">--}}
-{{--                </a>--}}
 
                 <form action="/admin/priests/{{ $priest->slug }}/edit" method="GET">
                     <button title="Редактировать" class="p-3 btn btn-outline-success rounded-pill edit-icon text-base"></button>
