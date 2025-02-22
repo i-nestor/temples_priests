@@ -15,7 +15,7 @@ use Illuminate\View\View;
 class AdminTempleController extends Controller {
 
     /**
-     * Display a listing of the resource.
+     * Показать список записей
      */
     public function index(): View {
         $temples = auth()->user()->temples()->orderBy('shortname')
@@ -25,14 +25,14 @@ class AdminTempleController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Показать форму создания записи
      */
     public function create(): View {
         return view('admin.temples.create' );
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохранить новую запись
      *
      * @param Request $request
      * @param Temple $temple
@@ -59,7 +59,7 @@ class AdminTempleController extends Controller {
     }
 
     /**
-     * Display the specified resource.
+     * Отобразить запись
      *
      * @param Temple $temple
      * @return View
@@ -69,7 +69,7 @@ class AdminTempleController extends Controller {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Показать форму редактирования записи
      *
      * @param Temple $temple
      * @return View
@@ -79,7 +79,7 @@ class AdminTempleController extends Controller {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновить запись
      *
      * @param Request $request
      * @param Temple $temple
@@ -119,7 +119,7 @@ class AdminTempleController extends Controller {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удалить запись
      *
      * @param Temple $temple
      * @return RedirectResponse
@@ -132,6 +132,10 @@ class AdminTempleController extends Controller {
         return redirect()->to('/admin/temples')->with('success', 'Храм (монастырь) был удалён');
     }
 
+    /**
+     * Возвращает слаг записи
+     * @return JsonResponse
+     */
     public function slug(): JsonResponse {
         $slug = Str::of(request('name'))->slug()->value;
         while (true) {

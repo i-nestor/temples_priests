@@ -16,53 +16,43 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
 | Here is where you can register web routes for your application.
 | These routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group.
 |
-*/
-/*
-|----------------------------------------------------------------- -------------------------
+|--------------------------------------------------------------------------
 | Веб-маршруты
-|----------------------------------------------------------------- -------------------------
-|
+|--------------------------------------------------------------------------
 | Здесь вы можете зарегистрировать веб-маршруты для вашего приложения.
-| Эти маршруты загружаются RouteServiceProvider внутри группы, которая
-| содержит группу промежуточного программного обеспечения «веб».
-|
+| Эти маршруты загружаются RouteServiceProvider в группу, которая
+| содержит middleware группу "web".
 */
 
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/about', function () {
-    return view('about');
-});
-
+// latest-publications
 Route::get('/latest-publications', [LatestPublicationsController::class, 'index']);
 
-// temples routes
+// temples
 Route::get('/temples', [TempleController::class, "index"]);
 Route::get('/temples/{temple:slug}', [TempleController::class, "show"]);
 
-// priests routes
+// priests
 Route::get('/priests', [PriestController::class, "index"]);
 Route::get('/priests/{priest:slug}', [PriestController::class, "show"]);
 
-// elder-founders routes
+// elder-founders
 Route::get('/elder-founders', [ElderFounderController::class, "index"]);
 Route::get('/elder-founders/{elder_founder:slug}', [ElderFounderController::class, "show"]);
-
-// users
-// Route::get('/author/{author:username}', [UserController::class, "templesByUser"]);
 
 // auth
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::delete('/logout', [LoginController::class, 'logout']);
 
+// register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 

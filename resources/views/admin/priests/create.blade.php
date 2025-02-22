@@ -2,7 +2,7 @@
 
 @section('admin-content')
     <div class="mx-auto max-width-980 my-5 p-4 rounded-4 shadow-sm bg-chocolate-200">
-        <h1 class="text-3xl mb-4 text-green-600">Добавление священнослужителя</h1>
+        <h1 class="text-2xl mb-4 text-green-300">Добавление священнослужителя</h1>
         <div class="min-h-full">
             <div class="">
                 <form action="/admin/priests" method="POST"

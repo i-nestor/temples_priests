@@ -14,7 +14,7 @@ use Illuminate\View\View;
 class AdminPriestController extends Controller {
 
     /**
-     * Display a listing of the resource.
+     * Показать список записей
      */
     public function index(): View {
         $priests = auth()->user()->priests()->orderBy('secondname')
@@ -24,14 +24,14 @@ class AdminPriestController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Показать форму создания записи
      */
     public function create(): View {
         return view('admin.priests.create' );
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохранить новую запись
      *
      * @param Request $request
      * @return RedirectResponse
@@ -57,7 +57,7 @@ class AdminPriestController extends Controller {
     }
 
     /**
-     * Display the specified resource.
+     * Отобразить запись
      *
      * @param Priest $priest
      * @return View
@@ -67,7 +67,7 @@ class AdminPriestController extends Controller {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Показать форму редактирования записи
      *
      * @param Priest $priest
      * @return View
@@ -77,7 +77,7 @@ class AdminPriestController extends Controller {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновить запись
      *
      * @param Request $request
      * @param Priest $priest
@@ -117,7 +117,7 @@ class AdminPriestController extends Controller {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удалить запись
      *
      * @param Priest $priest
      * @return RedirectResponse
@@ -128,6 +128,10 @@ class AdminPriestController extends Controller {
         return redirect()->to('/admin/priests')->with('success', 'Священнослужитель был удалён');
     }
 
+    /**
+     * Возвращает слаг записи
+     * @return JsonResponse
+     */
     public function slug(): JsonResponse {
 
         $slug = Str::of(request('secondname'))->slug()->value;

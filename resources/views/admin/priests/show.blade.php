@@ -5,16 +5,23 @@
         <div class="post-container overflow-hidden">
             <div class="header-post">
 
-                @include('components.forms.back')
+                <form action="/admin/priests" method="GET">
+                    <button title="Назад"
+                            class="p-3 m-auto btn btn-outline-chocolate rounded-pill back-icon text-base">
+                    </button>
+                </form>
 
-                <div class="header-name text-xl">
-                    {{ $priest->firstname }} {{ $priest->secondname }}
-                </div>
+                <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
+                @if($priest->updated_at >= $lastWeek)
+                    <div class="header-name text-xl text-green-300">{{ $priest->firstname }} {{ $priest->secondname }}</div>
+                @else
+                    <div class="header-name text-xl text-chocolate-400">{{ $priest->firstname }} {{ $priest->secondname }}</div>
+                @endif
 
                 <form action="/admin/priests/{{ $priest->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить священнослужителя?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $priest->name }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>

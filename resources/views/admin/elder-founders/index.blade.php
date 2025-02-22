@@ -3,7 +3,7 @@
 @section('admin-content')
     <div class="mx-auto max-width-980">
 
-        <div class="my-4 items-right-2">
+        <div class="my-2 items-right-2">
             <a href="/admin/elder-founders/create"
                class="mx-1 px-4 btn btn-outline-success rounded-pill add-icon text-base bg-chocolate-200">&nbsp; Добавить</a>
         </div>
@@ -68,16 +68,17 @@
                 <div class="">
                     <div class="py-2">
                         @if(session('success'))
-                            <div class="text-center bg-chocolate-200 shadow-sm rounded-5 px-4 py-2 border border-green-600 mb-5">
-                                <span class="text-green-600 text-xl">&#9888; {{ session('success') }}</span>
+                            <div class="px-4 py-2 text-center bg-chocolate-200 rounded-5 border shadow-sm mb-5">
+                                <span class="text-green-300 text-xl">&#9888; {{ session('success') }}</span>
                             </div>
                         @endif
 
+                        <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
                         @if($elder_founders->count())
                             <div class="">
                                 <table class="mx-auto rounded-4 border shadow-sm overflow-hidden">
                                     <thead>
-                                    <tr class="">
+                                    <tr class="no-select">
                                         <th scope="col" class="text-base">
                                             &#10022;
                                         </th>
@@ -85,32 +86,43 @@
                                             Название
                                         </th>
                                         <th scope="col" class="text-base">
-                                            Создано
+                                            Изменено
                                         </th>
                                         <th scope="col" class="text-base">
-                                            Изменено
+                                            Создано
                                         </th>
                                     </tr>
                                     </thead>
                                     <tbody class="text-chocolate-400">
                                     @foreach($elder_founders as $elder_founder)
-                                        <tr>
-                                            <td class="text-xs">
-                                                {{ $loop->iteration }}
-                                            </td>
-                                            <td class="text-xs">
-                                                <a href="/admin/elder-founders/{{ $elder_founder->slug }}"
-                                                   class="no-line text-chocolate-400 hover:text-chocolate-700">
-                                                    {{ $elder_founder->firstname }} {{ $elder_founder->secondname }}
-                                                </a>
-                                            </td>
-                                            <td class="text-xs">
-                                                {{ $elder_founder->created_at->format('d.m.Y H:i') }}
-                                            </td>
-                                            <td class="text-xs">
-                                                {{ $elder_founder->updated_at->format('d.m.Y H:i') }}
-                                            </td>
-                                        </tr>
+                                        @if($elder_founder->updated_at >= $lastWeek)
+                                            <tr class="text-green-300 hover:text-green-400">
+                                        @else
+                                            <tr class="text-chocolate-400 hover:text-chocolate-700">
+                                        @endif
+                                                <td class="text-xs">
+                                                    {{ $loop->iteration }}
+                                                </td>
+                                                <td class="text-xs">
+                                                    @if($elder_founder->updated_at >= $lastWeek)
+                                                        <a href="/admin/elder-founders/{{ $elder_founder->slug }}"
+                                                           class="text-green-300 hover:text-green-400 no-line">
+                                                            {{ $elder_founder->firstname }} {{ $elder_founder->secondname }}
+                                                        </a>
+                                                    @else
+                                                        <a href="/admin/elder-founders/{{ $elder_founder->slug }}"
+                                                           class="text-chocolate-400 hover:text-chocolate-600 no-line">
+                                                            {{ $elder_founder->firstname }} {{ $elder_founder->secondname }}
+                                                        </a>
+                                                    @endif
+                                                </td>
+                                                <td class="text-xs">
+                                                    {{ $elder_founder->updated_at->format('d.m.Y H:i') }}
+                                                </td>
+                                                <td class="text-xs">
+                                                    {{ $elder_founder->created_at->format('d.m.Y H:i') }}
+                                                </td>
+                                            </tr>
                                     @endforeach
                                     </tbody>
                                 </table>

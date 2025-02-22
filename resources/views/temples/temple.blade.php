@@ -7,7 +7,7 @@
 
             @include('components.forms.back')
 
-            <div class="header-name text-xl">
+            <div class="header-name text-xl text-chocolate-400">
                 {{ $temple->name }}
             </div>
 
@@ -15,7 +15,7 @@
                 <form action="/admin/temples/{{ $temple->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить храм?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $temple->name }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>

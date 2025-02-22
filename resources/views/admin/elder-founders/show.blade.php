@@ -5,16 +5,23 @@
         <div class="post-container overflow-hidden">
             <div class="header-post">
 
-                @include('components.forms.back')
+                <form action="/admin/elder-founders" method="GET">
+                    <button title="Назад"
+                            class="p-3 m-auto btn btn-outline-chocolate rounded-pill back-icon text-base">
+                    </button>
+                </form>
 
-                <div class="header-name text-xl">
-                    {{ $elder_founder->firstname }} {{ $elder_founder->secondname }}
-                </div>
+                <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
+                @if($elder_founder->updated_at >= $lastWeek)
+                    <div class="header-name text-xl text-green-300">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
+                @else
+                    <div class="header-name text-xl text-chocolate-400">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
+                @endif
 
                 <form action="/admin/elder-founders/{{ $elder_founder->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить человека?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $elder_founder->name }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>

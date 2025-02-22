@@ -28,6 +28,7 @@ class ElderFounder extends Model {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    // для привязки маршрута со слагом(slug) вместо идентификатора(id)
     public function getRouteKeyName(): string {
         return 'slug';
     }

@@ -5,16 +5,23 @@
         <div class="post-container overflow-hidden">
             <div class="header-post">
 
-                @include('components.forms.back')
+                <form action="/admin/temples" method="GET">
+                    <button title="Назад"
+                            class="p-3 m-auto btn btn-outline-chocolate rounded-pill back-icon text-base">
+                    </button>
+                </form>
 
-                <div class="header-name text-xl">
-                    {{ $temple->name }}
-                </div>
+                <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
+                @if($temple->updated_at >= $lastWeek)
+                    <div class="header-name text-xl text-green-300">{{ $temple->name }}</div>
+                @else
+                    <div class="header-name text-xl text-chocolate-400">{{ $temple->name }}</div>
+                @endif
 
                 <form action="/admin/temples/{{ $temple->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить храм/монастырь?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $temple->name }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>
@@ -24,12 +31,8 @@
                 </form>
             </div>
 
-            <img class="img-fluid no-select"
-                 src="{{ asset('storage/' . $temple->image) }}" alt="{{ $temple->name }}">
-
-            <div class="p-5 text-base text-chocolate-400">
-                <p> &nbsp; {!! $temple->description !!}</p>
-            </div>
+            <img class="img-fluid no-select" src="{{ asset('storage/' . $temple->image) }}" >
+            <div class="p-5 text-base text-chocolate-400"><p> &nbsp; {!! $temple->description !!}</p></div>
 
         </div>
 

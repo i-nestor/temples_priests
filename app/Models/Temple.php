@@ -11,8 +11,6 @@ class Temple extends Model {
     use HasFactory;
 
     protected $fillable = ["name", "shortname", "slug", "user_id", "image", "description"];
-    // protected $guarded = ["id"];
-    // protected $with = ['author', 'category'] // eager loading
 
     public function scopeFilter($query, array $filters): void { /* добавил void */
         $query->when($filters['search'] ?? false,
@@ -31,7 +29,7 @@ class Temple extends Model {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    // for route binding with slug instead id
+    // для привязки маршрута со слагом(slug) вместо идентификатора(id)
     public function getRouteKeyName(): string {
         return 'slug';
     }

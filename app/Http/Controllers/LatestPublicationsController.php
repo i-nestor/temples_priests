@@ -10,15 +10,15 @@ use Illuminate\View\View;
 
 class LatestPublicationsController extends Controller {
 
-    public function index(): View { // для админки не делать только для посетителей
+    public function index(): View {
 
+        // публикации за последний месяц
         $lastMonth = Carbon::now()->copy()->subMonth();
 
-        $temples = Temple::where('updated_at', '>=', $lastMonth)->orderBy('updated_at', 'DESC')->get();
-        $priests = Priest::where('updated_at', '>=', $lastMonth)->orderBy('updated_at', 'DESC')->get();
-        $elder_founders = ElderFounder::where('created_at', '>=', $lastMonth)->orderBy('updated_at', 'DESC')->get();
+        $temples = Temple::where('updated_at', '>=', $lastMonth)->orderBy('updated_at', 'desc')->get();
+        $priests = Priest::where('updated_at', '>=', $lastMonth)->orderBy('updated_at', 'desc')->get();
+        $elder_founders = ElderFounder::where('updated_at', '>=', $lastMonth)->orderBy('updated_at', 'desc')->get();
 
         return view('latest-publications', compact('temples', 'priests', 'elder_founders'));
-
     }
 }

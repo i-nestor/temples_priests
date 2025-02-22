@@ -14,7 +14,7 @@ use Illuminate\View\View;
 class AdminElderFounderController extends Controller {
 
     /**
-     * Display a listing of the resource.
+     * Показать список записей
      */
     public function index(): View {
         $elder_founders = auth()->user()->elder_founders()->orderBy('secondname')
@@ -23,14 +23,14 @@ class AdminElderFounderController extends Controller {
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Показать форму создания записи
      */
     public function create(): View {
         return view('admin.elder-founders.create' );
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохранить новую запись
      *
      * @param Request $request
      * @return RedirectResponse
@@ -55,7 +55,7 @@ class AdminElderFounderController extends Controller {
     }
 
     /**
-     * Display the specified resource.
+     * Отобразить запись
      *
      * @param ElderFounder $elder_founder
      * @return View
@@ -65,7 +65,7 @@ class AdminElderFounderController extends Controller {
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Показать форму редактирования записи
      *
      * @param ElderFounder $elder_founder
      * @return View
@@ -75,7 +75,7 @@ class AdminElderFounderController extends Controller {
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновить запись
      *
      * @param Request $request
      * @param ElderFounder $elder_founder
@@ -115,7 +115,7 @@ class AdminElderFounderController extends Controller {
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удалить запись
      *
      * @param ElderFounder $elder_founder
      * @return RedirectResponse
@@ -126,6 +126,10 @@ class AdminElderFounderController extends Controller {
         return redirect()->to('/admin/elder-founders')->with('success', 'Человек был удалён');
     }
 
+    /**
+     * Возвращает слаг записи
+     * @return JsonResponse
+     */
     public function slug(): JsonResponse {
 
         $slug = Str::of(request('secondname'))->slug()->value;

@@ -7,15 +7,15 @@
 
             @include('components.forms.back')
 
-            <div class="header-name">
-                <h1 class="text-xl">{{ $priest->firstname }} {{ $priest->secondname }}</h1>
+            <div class="header-name text-xl text-chocolate-400">
+                {{ $priest->firstname }} {{ $priest->secondname }}
             </div>
 
             @auth
                 <form action="/admin/priests/{{ $priest->slug }}" method="POST">
                     @method('DELETE')
                     @csrf
-                    <button onclick="return confirm('Вы действительно хотите удалить священнослужителя?')"
+                    <button onclick="return confirm('Вы действительно хотите удалить {{ $priest->firstname }} {{ $priest->secondname }}?')"
                             title="Удалить" class="mx-1 p-3 btn btn-outline-danger rounded-pill delete-icon text-base">
                     </button>
                 </form>
