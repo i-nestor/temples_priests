@@ -3,11 +3,11 @@
 @section('content')
 <div class="mx-auto max-width-980 my-5 rounded-4 shadow-sm bg-chocolate-200">
     <div class="post-container overflow-hidden">
-        <div class="header-post">
+        <div class="post-header">
 
             @include('components.forms.back')
 
-            <div class="header-name text-xl text-chocolate-400">
+            <div class="post-name text-xl text-chocolate-400">
                 {{ $temple->name }}
             </div>
 
@@ -30,7 +30,7 @@
         <img class="img-fluid no-select"
              src="{{ asset('storage/' . $temple->image) }}" alt="{{ $temple->name }}" >
 
-        <div class="p-5 text-base text-chocolate-400">
+        <div class="post-content text-base text-chocolate-400">
              <p> &nbsp; {!! $temple->description !!}</p>
         </div>
 

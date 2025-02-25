@@ -1,13 +1,12 @@
 <nav class="navbar navbar-expand-lg fixed-top bg-chocolate-600">
-    <div class="container-fluid contain">
-
+    <div class="my-auto container-fluid navbar-bg">
         <button class="navbar-toggler bg-chocolate-300 text-chocolate-200" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="d-lg-flex col-lg-2 justify-content-lg-start mx-auto">
+        <div class="mx-auto d-lg-flex col-lg-2 justify-content-lg-start">
             <a href="/" class="px-4 mx-lg-auto main-logo navbar-brand font-handwritten
                                text-l text-chocolate-300 hover:text-chocolate-200">
                 &nbsp; Исторический архив <br /> Борисоглебской епархии
@@ -16,16 +15,16 @@
 
         <div class="collapse navbar-collapse d-lg-flex" id="navbarCollapse">
             <ul class="navbar-nav col-lg-9 justify-content-lg-center font-handwritten text-xl">
-                <li class="px-2 nav-item menuitem">
+                <li class="px-2 nav-item">
                      <a class="nav-link" href="/temples">Храмы и монастыри</a>
                 </li>
-                <li class="px-2 nav-item menuitem">
+                <li class="px-2 nav-item">
                      <a class="nav-link" href="/priests">Священнослужители</a>
                 </li>
-                <li class="px-2 nav-item menuitem">
+                <li class="px-2 nav-item">
                      <a class="nav-link" href="/elder-founders">Церковные старосты и ктиторы</a>
                 </li>
-                <li class="px-2 nav-item menuitem">
+                <li class="px-2 nav-item">
                     <a class="nav-link" href="/latest-publications">Последние публикации</a>
                 </li>
             </ul>
@@ -34,7 +33,7 @@
             <div class="d-lg-flex col-lg-3 justify-content-lg-end">
                     <div class="mx-auto flex">
                         <div class="px-2 flex text-xs">
-                            <div class="px-2 py-1 nav-item menuitem">
+                            <div class="px-2 py-1 nav-item">
                                 <a class="nav-link" href="/admin/temples">Панель управления</a>
                             </div>
                         </div>

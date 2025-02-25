@@ -42,7 +42,7 @@ class AdminPriestController extends Controller {
             'firstname' => 'required|max:255',
             'secondname' => 'required|max:255',
             'slug' => 'required|unique:priests',
-            'image' => 'image|file|max:512',
+            'image' => 'image|file|max:360', // 360x480 (3x4)
             'biography' => 'required'
         ]);
 

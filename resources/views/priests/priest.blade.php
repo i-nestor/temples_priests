@@ -3,11 +3,11 @@
 @section('content')
 <div class="mx-auto max-width-980 my-5 rounded-4 shadow-sm bg-chocolate-200">
     <div class="post-container overflow-hidden">
-        <div class="header-post">
+        <div class="post-header">
 
             @include('components.forms.back')
 
-            <div class="header-name text-xl text-chocolate-400">
+            <div class="post-name text-xl text-chocolate-400">
                 {{ $priest->firstname }} {{ $priest->secondname }}
             </div>
 
@@ -26,10 +26,10 @@
             @endauth
         </div>
 
-        <img class="max-width-384 rounded-left no-select"
+        <img class="max-width-360 rounded-left no-select"
              src="{{ asset('storage/' . $priest->image) }}" alt="{{ $priest->name }}" >
 
-        <div class="biography pt-0 pb-5 px-5 py-5 text-base text-chocolate-400">
+        <div class="post-content text-base text-chocolate-400">
             <p> {!! $priest->biography !!} </p>
         </div>
 

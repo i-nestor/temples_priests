@@ -3,7 +3,7 @@
 @section('admin-content')
     <div class="mx-auto max-width-980 my-5 rounded-4 shadow-sm bg-chocolate-200">
         <div class="post-container overflow-hidden">
-            <div class="header-post">
+            <div class="post-header">
 
                 <form action="/admin/elder-founders" method="GET">
                     <button title="Назад"
@@ -13,9 +13,9 @@
 
                 <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
                 @if($elder_founder->updated_at >= $lastWeek)
-                    <div class="header-name text-xl text-green-300">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
+                    <div class="post-name text-xl text-green-300">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
                 @else
-                    <div class="header-name text-xl text-chocolate-400">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
+                    <div class="post-name text-xl text-chocolate-400">{{ $elder_founder->firstname }} {{ $elder_founder->secondname }}</div>
                 @endif
 
                 <form action="/admin/elder-founders/{{ $elder_founder->slug }}" method="POST">
@@ -31,11 +31,9 @@
                 </form>
             </div>
 
-            <img class="max-width-384 rounded-left no-select" src="{{ asset('storage/' . $elder_founder->image) }}" alt="" >
+            <img class="max-width-360 rounded-left no-select" src="{{ asset('storage/' . $elder_founder->image) }}" alt="" >
 
-            <div class="biography pt-0 pb-5 px-5 py-5 text-base text-chocolate-400">
-                <p> {!! $elder_founder->biography !!} </p>
-            </div>
+            <div class="post-content text-base text-chocolate-400"><p> {!! $elder_founder->biography !!} </p></div>
 
         </div>
 

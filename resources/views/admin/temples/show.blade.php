@@ -3,7 +3,7 @@
 @section('admin-content')
     <div class="mx-auto max-width-980 my-5 rounded-4 shadow-sm bg-chocolate-200">
         <div class="post-container overflow-hidden">
-            <div class="header-post">
+            <div class="post-header">
 
                 <form action="/admin/temples" method="GET">
                     <button title="Назад"
@@ -13,9 +13,9 @@
 
                 <?php $lastWeek = Illuminate\Support\Carbon::now()->copy()->subWeek(); ?>
                 @if($temple->updated_at >= $lastWeek)
-                    <div class="header-name text-xl text-green-300">{{ $temple->name }}</div>
+                    <div class="post-name text-xl text-green-300">{{ $temple->name }}</div>
                 @else
-                    <div class="header-name text-xl text-chocolate-400">{{ $temple->name }}</div>
+                    <div class="post-name text-xl text-chocolate-400">{{ $temple->name }}</div>
                 @endif
 
                 <form action="/admin/temples/{{ $temple->slug }}" method="POST">
@@ -32,7 +32,7 @@
             </div>
 
             <img class="img-fluid no-select" src="{{ asset('storage/' . $temple->image) }}" >
-            <div class="p-5 text-base text-chocolate-400"><p> &nbsp; {!! $temple->description !!}</p></div>
+            <div class="post-content text-base text-chocolate-400"><p> &nbsp; {!! $temple->description !!}</p></div>
 
         </div>
 

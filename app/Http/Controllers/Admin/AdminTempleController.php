@@ -44,7 +44,7 @@ class AdminTempleController extends Controller {
             'name' => 'required|max:255',
             'shortname' => 'required|max:255',
             'slug' => 'required|unique:temples',
-            'image' => 'image|file|max:1024',
+            'image' => 'image|file|max:1024', // 1024x682
             'description' => 'required'
         ]);
 

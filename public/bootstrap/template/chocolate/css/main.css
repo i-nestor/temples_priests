@@ -8,9 +8,10 @@
     --chocolate-700: rgb(95 80 70);
     --chocolate-main:rgb(240 232 223);
     --chocolate-disabled: rgb(240 237 232);
+    --red-400: rgb(220 90 38);
+    --green-400: rgb(80 170 30);
     --blue-400: rgb(20 145 225);
     --blue-600: rgb(20 120 185);
-    --green-400: rgb(80 170 30);
 }
 
 @font-face {
@@ -23,15 +24,13 @@
     src: url('../fonts/Rosarium.ttf');
 }
 
-html,body {
+html,body,div,ul,li,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td {
     margin:0;
     padding:0;
-    width: 100%;
 }
 
-body,div,ul,li,h1,h2,h3,h4,h5,h6,form,input,textarea,p,th,td {
-    margin:0;
-    padding:0;
+html,body {
+    width: 100%;
 }
 
 body {
@@ -41,6 +40,20 @@ body {
     justify-content: space-around;
     line-height: 1.25;
     font-family: Geometria, sans-serif;
+    min-width: 355px;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-width: 355px;
 }
 
 table {
@@ -107,6 +120,10 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 20px;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23976'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
     cursor: pointer;
+}
+
+.font-handwritten {
+    font-family: Rosarium, serif;
 }
 
 .tox.tox-tinymce { /* for tinymce editor */
@@ -184,10 +201,8 @@ ul {
 }
 
 .page-link a {
-    /*padding: 8px 16px 8px 16px;*/
     color: var(--chocolate-400);
     background-color: var(--chocolate-200);
-    /*border: 1px solid var(--chocolate-400);*/
     text-decoration: none;
     cursor: pointer;
     z-index: 3;
@@ -198,10 +213,6 @@ ul {
     background-color: var(--chocolate-400);
     border-color: var(--chocolate-400);
     z-index: 2;
-}
-
-.font-handwritten {
-    font-family: Rosarium;
 }
 
 .horizontal-space-5 {
@@ -322,33 +333,43 @@ ul {
     background-color: var(--chocolate-200); /* Цвет фона, который скроет битую картинку */
 }
 
-.post-container .biography {
-    margin-top: 0px;
-    padding-top: 0px;
+.post-container {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .tabs-container {
     margin-top: 0.75rem !important;
     margin-bottom: 0.75rem !important;
-    padding: 0.25rem !important;
+    padding: 0.5rem !important;
     width: auto !important;
 }
 
-.header-post {
+.post-header {
     position: relative;
     display: flex;
     flex-direction: row;
     padding: 16px 24px;
 }
 
-.header-name {
+.post-name {
     position: relative;
-    margin: 0;
+    margin: 0.25rem;
     width: 100%;
     height: 100%;
     text-align: center;
     border-radius: 16px 16px 0 0;
     z-index: 4;
+}
+
+.post-content {
+    padding: 0.5rem 3rem 3rem 3rem !important;
+}
+
+@media screen and (max-width: 799px) {
+    .post-content {
+        padding: 1.5rem !important;
+    }
 }
 
 .rounded-left {
@@ -367,7 +388,7 @@ ul {
     user-select: none;
 }
 
-.nav-item, .nav-link {
+.nav-link {
     cursor: pointer;
 }
 
@@ -552,7 +573,6 @@ ul {
 
 .text-green-300 {
     color: rgb(90 190 35);
-    /*color: rgb(90 190 40);*/
 }
 
 .text-green-400 {
@@ -560,14 +580,14 @@ ul {
 }
 
 .hover\:text-green-400:hover {
-    /*color: rgb(80 170 30);*/
     color: var(--green-400);
 }
 
 .text-red-600 {
     color: rgb(220 90 38);
 }
-.info-btn {
+
+.btn-info {
     padding: 0.125rem 0.75rem 0.125rem 0.75rem !important;
 }
 
@@ -641,36 +661,36 @@ ul {
 }
 
 .btn-outline-danger {
-    --bs-btn-color: rgb(220 90 38); /* #dc3545; */
-    --bs-btn-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-color: var(--red-400); /* #dc3545; */
+    --bs-btn-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: rgb(220 90 38); /*#dc3545;*/
-    --bs-btn-hover-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-hover-bg: var(--red-400); /*#dc3545;*/
+    --bs-btn-hover-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-focus-shadow-rgb: 220, 53, 69;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: rgb(220 90 38); /* #dc3545; */
-    --bs-btn-active-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-active-bg: var(--red-400); /* #dc3545; */
+    --bs-btn-active-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-disabled-color: var(--red-400); /* #dc3545; */
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-disabled-border-color: var(--red-400); /* #dc3545; */
     --bs-gradient: none;
 }
 
 .btn-outline-exit {
-    --bs-btn-color: rgb(220 90 38); /* #dc5a26; */
-    --bs-btn-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-color: var(--red-400); /* #dc5a26; */
+    --bs-btn-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: rgb(220 90 38); /*#dc3545;*/
-    --bs-btn-hover-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-hover-bg: var(--red-400); /*#dc3545;*/
+    --bs-btn-hover-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-focus-shadow-rgb: 220, 53, 69;
     --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: rgb(220 90 38); /* #dc3545; */
-    --bs-btn-active-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-active-bg: var(--red-400); /* #dc3545; */
+    --bs-btn-active-border-color: var(--red-400); /* #dc3545; */
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-disabled-color: var(--red-400); /* #dc3545; */
     --bs-btn-disabled-bg: transparent;
-    --bs-btn-disabled-border-color: rgb(220 90 38); /* #dc3545; */
+    --bs-btn-disabled-border-color: var(--red-400); /* #dc3545; */
     --bs-gradient: none;
 }
 
@@ -760,8 +780,8 @@ ul {
     max-width: 32%;
 }
 
-.max-width-384 {
-    max-width: 384px;
+.max-width-360 {
+    max-width: 360px;
 }
 
 .max-width-980 {

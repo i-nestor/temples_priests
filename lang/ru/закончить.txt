@@ -1,2 +1,0 @@
-Перевести ещё
-passwords.php и validation.php

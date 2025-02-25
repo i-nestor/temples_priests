@@ -10,13 +10,13 @@
 
                 <div class="my-auto">
                     <button type="button" title="Информация" onclick = "info();"
-                            class="info-btn btn btn-outline-info rounded-pill text-base bg-chocolate-200">
+                            class="btn btn-info btn-outline-info rounded-pill text-base bg-chocolate-200">
                         <strong>i</strong>
                     </button>
                 </div>
             </div>
 
-            <div class="max-w-full space-between no-select">
+            <div class="max-w-full mx-auto space-between no-select">
                 <div class="tabs-container input-group rounded-5 border shadow-sm bg-chocolate-200">
                     <div class="my-1 py-2 m-auto">
                         <a href="/admin/temples" class="mx-left-2 px-4 py-2 rounded-5 text-xs no-select no-line text-chocolate-500
@@ -54,7 +54,7 @@
     </div>
 
 <script>
-    const info = () => { alert('Версия сайта 0.9.9.1 сделано на Laravel 10 и Bootstrap 5'); }
+    const info = () => { alert('Версия сайта 0.9.9.2 сделано на Laravel 10 и Bootstrap 5'); }
 </script>
 <script>
     const previewImage = () => {

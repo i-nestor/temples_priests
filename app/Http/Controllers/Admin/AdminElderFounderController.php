@@ -85,7 +85,7 @@ class AdminElderFounderController extends Controller {
         $rules = [
             'firstname' => 'required|max:255',
             'secondname' => 'required|max:255',
-            'image' => 'image|file|max:512',
+            'image' => 'image|file|max:360', // 360x480 (3x4)
             'biography' => 'required'
         ];
 
