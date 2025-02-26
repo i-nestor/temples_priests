@@ -51,10 +51,15 @@
             <div class="mx-auto">
                 @yield('admin-content')
             </div>
+
     </div>
 
 <script>
-    const info = () => { alert('Версия сайта 0.9.9.2 сделано на Laravel 10 и Bootstrap 5'); }
+    const info = () => { alert('ⓘ Информация о сайте:\n' +
+                               '     • версия сайта 0.9.9.3 \n' +
+                               '     • версия PHP {{ PHP_VERSION }}\n' +
+                               '     • версия Laravel {{ Illuminate\Foundation\Application::VERSION }}\n' +
+                               '     • версия Bootstrap 5.3.3'); }
 </script>
 <script>
     const previewImage = () => {

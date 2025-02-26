@@ -43,6 +43,112 @@ body {
     min-width: 355px;
 }
 
+/* ---------------------- navbar --------------------------- */
+
+.bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+}
+
+.bd-mode-toggle {
+    z-index: 15;
+}
+
+a.main-logo {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 48px;
+    max-width: 32px;
+    max-height: 48px;
+    background: no-repeat url("../feather.svg");
+}
+
+a.main-logo:hover {
+    background: no-repeat url("../feather_hover.svg");
+}
+
+a.vk-logo {
+    background: no-repeat url("../vk-logo.svg");
+}
+
+a.vk-logo:hover {
+    background: no-repeat url("../vk-logo_hover.svg");
+}
+
+.navbar {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navbar-bg {
+    background-size: 110px;
+    background-repeat: repeat-x;
+    background-image: url(../nav-background.svg);
+}
+
+.navbar-brand {
+    cursor: pointer;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-item a {
+    position: relative;
+    cursor: pointer;
+    color: var(--chocolate-300);
+    line-height: 1.25rem; /* задаём высоту строки */
+    text-decoration: none; /* убираем подчёркивание */
+}
+
+.nav-item a:hover,
+.nav-item a:focus {
+    color: var(--chocolate-200);  /* цвет ссылки при наведении */
+}
+
+.nav-item a:hover:after,
+.nav-item a:focus:after {
+    width: 100%; /* устанавливаем значение 100% чтобы ссылка подчёркивалась полностью */
+}
+
+.nav-item a:after {
+    display: block;
+    position: absolute;
+    left: 0; /* изменить на right:0;, чтобы изменить направление подчёркивания */
+    width: 0;/* задаём длинну линии до наведения курсора */
+    height: 2px; /* задаём толщину линии */
+    content: "";
+    background-color: var(--chocolate-200); /* цвет линии под ссылкой при наведении */
+    border-radius: 32px;
+    transition: width 0.4s ease-out; /* задаём время анимации */
+}
+
+/* -------------------- end navbar ------------------------- */
 footer {
     position: relative;
     display: flex;

@@ -7,9 +7,8 @@
         <title>Исторический архив Борисоглебской епархии</title>
         <link rel="icon" type="image/png" href="{{ asset('favicon.svg') }}">
         @include('components.head.tinymce-config')
-        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('bootstrap/template/chocolate/css/main.css') }}">
-        <link rel="stylesheet" href="{{ asset('bootstrap/template/chocolate/css/menu.css') }}">
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bootstrap/template/chocolate/css/style.css') }}">
         <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     </head>
     <body class="bg-chocolate-main">
